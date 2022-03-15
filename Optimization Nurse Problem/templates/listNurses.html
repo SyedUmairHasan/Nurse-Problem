@@ -1,0 +1,55 @@
+{% extends "baseNurse.html" %}
+{% block content %}
+
+<section class="page-section">
+  <div class="container">
+    {% if success %}
+    <div class="text-center">
+      <div class="alert alert-success" role="alert">
+        Record Added Successfully!
+      </div>
+  </div>
+  {% endif %}
+    <div class="card o-hidden border-0 shadow-lg my-5">
+      <div class="card-body p-0">
+        <div class="row">
+
+          <div class="col-lg-5 d-none d-lg-block bg-register-image"
+            style="background:url('/static/behind.jpg');background-position:center;background-size:cover; background-repeat:no-repeat;">
+          </div>
+          <div class="col-lg-7">
+            <div class="p-5">
+              <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Nurses</h1>
+              </div>
+              <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Shift Request</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for nurse in nurses %}
+                  <tr>
+                    <th scope="row">{{nurse.id}}</th>
+                    <td>{{nurse.name}}</td>
+                    <!--<td><a class="btn btn-info" href="{{url_for('nurseDetails', nurse_id = nurse.id)}}">More Details</a></td>-->
+                    <td>{{nurse.request}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              <hr>
+              <a class="btn btn-primary" href="{{url_for('form')}}" >Add Nurses</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

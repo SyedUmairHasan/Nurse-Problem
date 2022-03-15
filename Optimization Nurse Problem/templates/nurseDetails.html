@@ -1,0 +1,112 @@
+{% extends "baseNurse.html" %}
+{% block style %}
+<style>
+  .borderless td,
+  .borderless th {
+    border: none;
+  }
+
+  .table td,
+  th.align {
+    text-align: center;
+  }
+</style>
+{% endblock %}
+{% block content %}
+<section class="page-section">
+  <div class="container">
+    <div class="card o-hidden border-0 shadow-lg my-5">
+      <div class="card-body p-0">
+        <div class="row">
+
+          <div class="col-lg-5 d-none d-lg-block bg-register-image"
+            style="background:url(https://www.scnsoft.com/blog-pictures/healthcare/nursing-apps-01.png);background-position:center;background-size:cover; background-repeat:no-repeat;">
+          </div>
+          <div class="col-lg-7">
+            <div class="p-5">
+              <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Nurse Details</h1>
+              </div>
+              <form action="/submit" method="post" enctype="multipart/form-data">
+                <div class="form-row">
+
+                  <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" name="nursename" value="{{nurse.name}}" class="form-control" readonly >
+                  </div>
+
+                </div>
+                <br>
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                    <div class="table-responsive">
+                      <table class="table table-hover borderless">
+                        <thead>
+                          <tr>
+                            <td>Shift Request</td>
+                            <th class="align" scope="col">Morning</th>
+                            <th class="align" scope="col">Afternoon</th>
+                            <th class="align" scope="col">Evening</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">Monday</td>
+                            <td><input type="radio" value="Morning" name="mon" /></td>
+                            <td><input type="radio" value="Afternoon" name="mon" /></td>
+                            <td><input type="radio" value="Night" name="mon" /></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Tuesday</td>
+                            <td><input type="radio" value="Morning" name="tue" /></td>
+                            <td><input type="radio" value="Afternoon" name="tue" /></td>
+                            <td><input type="radio" value="Night" name="tue" /></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Wednesday</td>
+                            <td><input type="radio" value="Morning" name="wed" /></td>
+                            <td><input type="radio" value="Afternoon" name="wed" /></td>
+                            <td><input type="radio" value="Night" name="wed" /></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Thursday</td>
+                            <td><input type="radio" value="Morning" name="thu" /></td>
+                            <td><input type="radio" value="Afternoon" name="thu" /></td>
+                            <td><input type="radio" value="Night" name="thu" /></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Friday</td>
+                            <td><input type="radio" value="Morning" name="fri" /></td>
+                            <td><input type="radio" value="Afternoon" name="fri" /></td>
+                            <td><input type="radio" value="Night" name="fri" /></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Saturday</td>
+                            <td><input type="radio" value="Morning" name="sat" /></td>
+                            <td><input type="radio" value="Afternoon" name="sat" /></td>
+                            <td><input type="radio" value="Night" name="sat" /></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Sunday</td>
+                            <td><input type="radio" value="Morning" name="sun" /></td>
+                            <td><input type="radio" value="Afternoon" name="sun" /></td>
+                            <td><input type="radio" value="Night" name="sun" /></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <br>
+                  </div>
+                </div>
+                <hr>
+                <button type="submit" class="btn btn-primary" onclick="loading();">Add Nurse</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
